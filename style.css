@@ -117,7 +117,7 @@ header{
 
 .game-board svg{
     margin: 0px auto;
-    transition: 0.15s ease-in-out;
+    transition: 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 .x-svg{
