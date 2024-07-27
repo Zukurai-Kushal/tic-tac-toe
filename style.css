@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Rammetto+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Contrail+One&family=Lobster&family=Rammetto+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Contrail+One&family=Lobster&family=Rammetto+One&display=swap');
+
 /* Minimal Reset */
 *, *::before, *::after {
 box-sizing: border-box;
@@ -23,4 +27,131 @@ overflow-wrap: break-word;
 #root, #__next {
 isolation: isolate;
 }
+  
+/* Site CSS */
+:root{
+    --color-background: #2dd4bf;
+    --color-board-line: #0d9488;
+    --color-X: #1f2937;
+    --color-O: #f5f5f5;
+    --board-line-width: 10px;
+    --board-size: 600px;
+}
 
+body{
+    background-color: var(--color-background);
+    font-family: "Comfortaa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    background-color: var(--color-board-line);
+    color: var(--color-O);
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    justify-items: center;
+    align-items: center;
+    padding: 12px;
+    gap: 80px;
+}
+
+.score-container{
+    display: flex;
+    font-size: 4rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 700;
+    gap: 25px;
+    position: relative;
+}
+
+.score-container::before{
+    content: "";
+    position: absolute;
+    bottom: -2%;
+    width: 0%;
+    border-bottom: 8px solid var(--color-O);
+    border-radius: 25px;
+    transition: 0.25s ease;
+}
+
+.score-container.highlight::before{
+    width: 120%;
+}
+
+.score-container span{
+    padding-top: 8px;
+}
+
+.msg-board{
+    font-size: 3.5rem;
+    font-weight: 700;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.game-container{
+    display: flex;
+    justify-content: center;
+    padding: 80px;
+}
+
+.game-board{
+    border-collapse: collapse;
+    border: calc(var(--board-line-width) + 2px) solid var(--color-background);
+}
+
+.game-board td{
+    border: var(--board-line-width) solid var(--color-board-line);
+    width: calc(var(--board-size)/3);
+    height: calc(var(--board-size)/3);
+    vertical-align: middle;
+    position: relative;
+}
+
+.game-board svg{
+    margin: 0px auto;
+    transition: 0.15s ease-in-out;
+}
+
+.x-svg{
+    --svg-size: 30%;
+
+    fill: var(--color-X);   
+    width: var(--svg-size);
+    height: var(--svg-size);
+}
+
+.o-svg{
+    --svg-size: 45%;
+
+    stroke: var(--color-O);
+    width: var(--svg-size);
+    height: var(--svg-size);
+}
+
+td.highlight svg{
+    width: calc(var(--svg-size) + 25%);
+    height: calc(var(--svg-size) + 25%);
+}
+
+.restart-button{
+    font-size: 2rem;
+    padding: 8px 40px;
+    border: none;
+    color: var(--color-X);
+    background-color: transparent;
+    align-self: center;
+    transition: 0.1s;
+}
+
+.restart-button:hover{
+    background-color: var(--color-board-line);
+    color: var(--color-O);
+}
