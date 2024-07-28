@@ -77,11 +77,13 @@ header{
     width: 0%;
     border-bottom: 8px solid var(--color-O);
     border-radius: 25px;
-    transition: 0.25s ease;
+    opacity: 0;
+    transition: 0.3s ease;
 }
 
 .score-container.highlight::before{
     width: 120%;
+    opacity: 1;
 }
 
 .score-container span{
